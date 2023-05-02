@@ -39,6 +39,8 @@ router.post('/createuser', [
                 id: user.id
             }
         }
+
+        // generate JWT Token
         const authtoken = jwt.sign(data, JWT_SECRET);
         console.log(authtoken);
 
@@ -81,6 +83,8 @@ router.post('/login', [
                 id: user.id
             }
         }
+
+        // generate JWT Token
         const authtoken = jwt.sign(data, JWT_SECRET);
         console.log(authtoken);
 
