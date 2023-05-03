@@ -86,7 +86,7 @@ router.post('/login', [
 
         // generate JWT Token
         const authtoken = jwt.sign(data, JWT_SECRET);
-        console.log(authtoken);
+        // console.log(authtoken);
 
 
         res.json({ authtoken });

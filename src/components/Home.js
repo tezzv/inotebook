@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Notes from './Notes';
+
 
 const Home = () => {
   return (
-  <>
-  <h1>This is iNotebook</h1>
-  </>
+    <>
+      <Notes />
+    </>
   )
 }
 
