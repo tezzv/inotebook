@@ -50,11 +50,11 @@ const Signup = () => {
   }
   return (
     <>
-      {!localStorage.getItem('token') && <h2 style={{color: "#2F1C6A"}} className=''>Please create an Account </h2>}
+      {!localStorage.getItem('token') && <h2 style={{color: "#2F1C6A"}} className='my-3'>Please create an Account </h2>}
       <form onSubmit={submitHandler}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
-          <input type="text" className="form-control" id="name" name='name' value={credentials.name} onChange={onChange} placeholder='Name must be atleast 5 characters' required />
+          <input type="text" className="form-control" id="name" name='name' value={credentials.name} onChange={onChange} minLength={3} placeholder='Name must be atleast 3 characters' required />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -63,7 +63,7 @@ const Signup = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password</label>
-          <input type="password" className="form-control" id="password" value={credentials.password} name='password' onChange={onChange} placeholder='Password must be atleast 5 characters' autoComplete='' required />
+          <input type="password" className="form-control" id="password" value={credentials.password} name='password' onChange={onChange} minLength={5} placeholder='Password must be atleast 5 characters' autoComplete='' required />
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">Confirm Password</label>
