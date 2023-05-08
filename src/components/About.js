@@ -3,11 +3,24 @@ import React from 'react'
 const About = () => {
 
   return (
-    <div>
-      This is About
-      
-      
-    </div>
+    <>
+      <div style={{ width: "80vw", marginTop: "30px" }}><p>Welcome to our <a href='https://www.mongodb.com/mern-stack#:~:text=MERN%20stands%20for%20MongoDB%2C%20Express,a%20client%2Dside%20JavaScript%20framework'>MERN</a>-based CRUD notes app! NOTEDiN, Our application is designed to provide a seamless and intuitive experience for managing your notes.<br /><br />
+
+        We understand the importance of being able to easily store and access notes, which is why we created this app using the MERN (MongoDB, Express, React, Node.js) stack. This combination of technologies provides a robust and scalable platform for building web applications.<br /><br />
+
+        With our app, you can create, read, update, and delete notes with ease. The intuitive user interface allows you to quickly add new notes and organize them with customizable tags. You can also search for notes using keywords or tags to quickly find what you're looking for.<br /><br />
+
+        Our app also includes features such as user authentication, which ensures that your notes are only accessible by you. Additionally, we use industry-standard security measures to protect your data, so you can rest assured that your notes are safe.<br /><br />
+
+        Whether you're a student, a professional, or just someone who likes to stay organized, our MERN-based CRUD notes app is the perfect solution for managing your notes. Try it out today and experience the convenience and ease of use for yourself!</p></div>
+      <div>
+        <h5 className='my-3'>How to use NOTEDiN</h5>
+        <h6>:- Login / Create a new account (Pease save your credentials securely)</h6>
+        <h6>:- Add new notes using add note form on home tab</h6>
+        <h6>:- Update note using <i className="fa-sharp fa-solid fa-pen-to-square mx-2" /> button</h6>
+        <h6>:- Delete note using <i className="fa-solid fa-trash-can mx-2" /> button</h6>
+      </div>
+    </>
   )
 }
 

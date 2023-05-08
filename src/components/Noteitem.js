@@ -5,6 +5,18 @@ const Noteitem = (props) => {
     const context = useContext(noteContext);
     const { deleteNote } = context;
     const { note, updateNote } = props;
+
+    const deleteNote1 = () => {
+        // alert("Do you want to delete this note")
+        // if(alert.proceed){
+        //     deleteNote(note._id)
+        // }
+        deleteNote(note._id)
+    }
+
+    const utcDate = new Date(note.date);
+    const options = { timeZone: 'Asia/Kolkata' };
+    const istDate = utcDate.toLocaleString('en-IN', options);
     return (
         <>
             <div className='col-md-3'>
@@ -13,11 +25,18 @@ const Noteitem = (props) => {
                         <div className='d-flex align-items-center justify-content-between'>
                             <h5 className="card-title">{note.title}</h5>
                             <div>
-                                <i className="fa-solid fa-trash-can mx-2"  onClick={() => { deleteNote(note._id) }}></i>
-                                <i className="fa-sharp fa-solid fa-pen-to-square mx-2" onClick={() => {updateNote(note)}} alt="edit"></i>
+                                <i className="fa-solid fa-trash-can mx-2" onClick={deleteNote1} />
+                                <i className="fa-sharp fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }} alt="edit" />
                             </div>
                         </div>
                         <p className="card-text">{note.description}</p>
+                    </div>
+                    <div className="card-footer">
+                        <div className='row'>
+                            <small style={{ fontSize: "10px" }} className="text-body-secondary"><strong>Tag:</strong> {note.tag}</small>
+                            <small style={{ fontSize: "10px" }} className="text-body-secondary"><strong>Created on:</strong> {istDate}</small>
+                        </div>
+
                     </div>
                 </div>
             </div>

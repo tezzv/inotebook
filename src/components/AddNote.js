@@ -23,17 +23,17 @@ const AddNote = () => {
                 <form className='my-3'>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" className="form-control" id="title" name="title" onChange={onChange} value={note.title} required />
+                        <input type="text" className="form-control" id="title" name="title" onChange={onChange} value={note.title} placeholder='Enter Title (minimum 3 characters)' required />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description</label>
-                        <textarea type="text" className="form-control" id="description" name="description" onChange={onChange} value={note.description} required />
+                        <textarea type="text" className="form-control" id="description" name="description" onChange={onChange} value={note.description} placeholder='Enter Description (minimum 5 characters)' required />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="tag" className="form-label">Tag</label>
-                        <input type="text" className="form-control" id="tag" name="tag" onChange={onChange} value={note.tag} />
+                        <input type="text" className="form-control" id="tag" name="tag" onChange={onChange} value={note.tag} placeholder='Enter Tag (optional)' />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
+                    <button disabled={note.title.length < 3 || note.description.length < 5 || !localStorage.getItem('token') } type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
                 </form>
             </div>
         </>
