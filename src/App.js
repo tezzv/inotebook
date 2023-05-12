@@ -7,6 +7,7 @@ import NoteState from './context/notes/NoteState';
 import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/*" element={<NotFound />} />
             </Routes>
           </div>
         </BrowserRouter>

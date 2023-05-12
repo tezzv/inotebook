@@ -67,7 +67,7 @@ const Signup = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" id="cpassword" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required />
+          <input type="password" className="form-control" id="cpassword" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => {e.preventDefault()}} />
         </div>
         <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Submit</button>
       </form>
