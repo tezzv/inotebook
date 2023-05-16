@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const { MOGOURL } = require('./config/keys')
 
 const connectToMongo = () => {
-    mongoose.connect('mongodb://localhost:27017/inotebook')
+    mongoose.connect(MOGOURL)
         .then(() => {
             console.log('Connected to MongoDB');
         })
