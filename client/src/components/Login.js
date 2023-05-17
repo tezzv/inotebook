@@ -14,12 +14,17 @@ const Login = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
+    let host = "http://localhost:5000";
+
+    if (process.env.NODE_ENV === 'production') {
+        host = "/"
+    }
 
     const submitHandler = async (e) => {
         e.preventDefault()
 
         try {
-            const response = await fetch("http://localhost:5000/api/auth/login", {
+            const response = await fetch(`${host}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

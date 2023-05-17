@@ -14,13 +14,19 @@ const Signup = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
 
+  let host = "http://localhost:5000";
+
+  if (process.env.NODE_ENV === 'production') {
+    host = "/"
+  }
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       const { name, email, password } = credentials;
 
-      const response = await fetch("http://localhost:5000/api/auth/createuser", {
+      const response = await fetch(`${host}/api/auth/createuser`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -45,12 +51,12 @@ const Signup = () => {
 
     } catch (error) {
       // console.error("Error:", error);
-      showAlert( error, "danger")
+      showAlert(error, "danger")
     }
   }
   return (
     <>
-      {!localStorage.getItem('token') && <h2 style={{color: "#2F1C6A"}} className='my-3'>Please create an Account </h2>}
+      {!localStorage.getItem('token') && <h2 style={{ color: "#2F1C6A" }} className='my-3'>Please create an Account </h2>}
       <form onSubmit={submitHandler}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
@@ -67,7 +73,7 @@ const Signup = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" id="cpassword" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => {e.preventDefault()}} />
+          <input type="password" className="form-control" id="cpassword" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => { e.preventDefault() }} />
         </div>
         <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Submit</button>
       </form>
