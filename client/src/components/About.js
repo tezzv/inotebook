@@ -13,8 +13,8 @@ const About = () => {
         Our app also includes features such as user authentication, which ensures that your notes are only accessible by you. Additionally, we use industry-standard security measures to protect your data, so you can rest assured that your notes are safe.<br /><br />
 
         Whether you're a student, a professional, or just someone who likes to stay organized, our MERN-based CRUD notes app is the perfect solution for managing your notes. Try it out today and experience the convenience and ease of use for yourself!</p></div>
-      <div>
-        <h5 className='my-3'>How to use NOTEDiN</h5>
+      <div style={{marginBottom: '4rem'}}>
+        <h5 className='my-2'>How to use NOTEDiN</h5>
         <h6>:- Login / Create a new account (Pease save your credentials securely)</h6>
         <h6>:- Add new notes using add note form on home tab</h6>
         <h6>:- Update note using <i className="fa-sharp fa-solid fa-pen-to-square mx-2" /> button</h6>
