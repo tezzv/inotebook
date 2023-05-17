@@ -5,19 +5,13 @@ import noteContext from '../context/notes/noteContext';
 
 const Signup = () => {
   const context = useContext(noteContext);
-  const { showAlert } = context;
+  const { showAlert, host } = context;
 
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ name: "", email: "", cpassword: "", password: "" })
 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
-  }
-
-  let host = "http://localhost:5000";
-
-  if (process.env.NODE_ENV === 'production') {
-    host = "/"
   }
 
   const submitHandler = async (e) => {
@@ -47,13 +41,12 @@ const Signup = () => {
         showAlert(result.error, "danger")
       }
 
-
-
     } catch (error) {
       // console.error("Error:", error);
       showAlert(error, "danger")
     }
   }
+
   return (
     <>
       {!localStorage.getItem('token') && <h2 style={{ color: "#2F1C6A" }} className='my-3'>Please create an Account </h2>}
@@ -73,7 +66,8 @@ const Signup = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" id="cpassword" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => { e.preventDefault() }} />
+          <input type="password" className="form-control" id="cpassword" aria-describedby="passwordHelp" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => { e.preventDefault() }} />
+          <div id="passwordHelp" className="form-text"><strong>Please save your password carefully.</strong></div>
         </div>
         <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Submit</button>
       </form>

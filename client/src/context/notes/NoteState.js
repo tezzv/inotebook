@@ -2,11 +2,12 @@ import { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-    let host = "http://localhost:5000";
+    // let host = "http://localhost:5000";
+    let host = "https://notedin-api-git-master-tezzv.vercel.app";
     const authToken = localStorage.getItem('token');
 
     if (process.env.NODE_ENV === 'production') {
-        host = "/"
+        host = "https://notedin-api-git-master-tezzv.vercel.app"
     }
 
     // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ0ZTVlNDM1NmI0MDg5N2ZkMTUyZDM2In0sImlhdCI6MTY4Mjg1NzUzOX0.d_FmcoHO4qSxH4SowcTTCDU4afA46myDhDP2eGpCRjs";
@@ -166,7 +167,7 @@ const NoteState = (props) => {
  
 
     return (
-        <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote, editNote, getNotes, alert, showAlert, getUser }}>
+        <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote, editNote, getNotes, alert, showAlert, getUser, host }}>
             {props.children}
         </NoteContext.Provider>
     )

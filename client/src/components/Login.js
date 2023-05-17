@@ -5,19 +5,13 @@ import noteContext from '../context/notes/noteContext';
 
 const Login = () => {
     const context = useContext(noteContext);
-    const { showAlert } = context;
+    const { showAlert, host } = context;
 
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ email: "", password: "" })
 
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    }
-
-    let host = "http://localhost:5000";
-
-    if (process.env.NODE_ENV === 'production') {
-        host = "/"
     }
 
     const submitHandler = async (e) => {
@@ -48,8 +42,6 @@ const Login = () => {
             showAlert(error, "danger")
         }
     }
-
-
 
     return (
         <>
