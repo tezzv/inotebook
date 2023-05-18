@@ -7,11 +7,11 @@ const Noteitem = (props) => {
     const { note, updateNote } = props;
 
     const deleteNote1 = () => {
-        // alert("Do you want to delete this note")
-        // if(alert.proceed){
-        //     deleteNote(note._id)
-        // }
-        deleteNote(note._id)
+        const confirmed = window.confirm('Are you sure you want to delete this Note?');
+        if (confirmed) {
+            // Perform deletion logic here
+            deleteNote(note._id)
+        }
     }
 
     const utcDate = new Date(note.date);
