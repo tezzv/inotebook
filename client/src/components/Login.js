@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import noteContext from '../context/notes/noteContext';
 
 const Login = () => {
@@ -54,7 +54,8 @@ const Login = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" value={credentials.password} name='password' onChange={onChange} autoComplete='' required />
+                    <input type="password" className="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" value={credentials.password} name='password' onChange={onChange} autoComplete='' required />
+                    <div id="passwordHelp" className="form-text">Do not have an account create <Link to='/signup'>here</Link></div>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
