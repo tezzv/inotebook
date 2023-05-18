@@ -15,7 +15,7 @@ const NoteState = (props) => {
 
     // const initialNotes = []
 
-    const [notes, setNotes] = useState("");
+    const [notes, setNotes] = useState([]);
 
     // Fetch all Notes
     const getNotes = async (authToken) => {
@@ -32,7 +32,7 @@ const NoteState = (props) => {
 
             const json = await response.json()
             // console.log("Success:", json);
-            setNotes(json)
+            setNotes(json.reverse())
         } catch (error) {
             // console.error("Error:", error);
             showAlert(error, "danger")
