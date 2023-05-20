@@ -2,13 +2,14 @@ import { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-    // let host = "http://localhost:5000";
-    let host = "https://notedin-api-git-master-tezzv.vercel.app";
     const authToken = localStorage.getItem('token');
 
+    let host = "http://localhost:5000"; // Default host for development
+
     if (process.env.NODE_ENV === 'production') {
-        host = "https://notedin-api-git-master-tezzv.vercel.app"
+        host = "https://notedin-api-git-master-tezzv.vercel.app"; // API host for production
     }
+
 
     // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ0ZTVlNDM1NmI0MDg5N2ZkMTUyZDM2In0sImlhdCI6MTY4Mjg1NzUzOX0.d_FmcoHO4qSxH4SowcTTCDU4afA46myDhDP2eGpCRjs";
     // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ0Y2Y5ODFjODgxOWUyNzA1MjgxMDMwIn0sImlhdCI6MTY4MzExNTEzN30.BcXICOKJ5ryJ9DmUWYUBRP9PiP-l_ifhjafS4VkdQXs";
@@ -156,7 +157,7 @@ const NoteState = (props) => {
             });
 
             const result = await response.json()
-            if(result.name){
+            if (result.name) {
                 localStorage.setItem('name', result.name)
             }
         } catch (error) {
@@ -164,7 +165,7 @@ const NoteState = (props) => {
             showAlert(error, "danger")
         }
     }
- 
+
 
     return (
         <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote, editNote, getNotes, alert, showAlert, getUser, host }}>

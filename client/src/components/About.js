@@ -24,6 +24,10 @@ const About = () => {
         <h6>:- Add new notes using add note form on home tab</h6>
         <h6>:- Update note using <i className="fa-sharp fa-solid fa-pen-to-square mx-2" /> button</h6>
         <h6>:- Delete note using <i className="fa-solid fa-trash-can mx-2" /> button</h6>
+        <p>
+          For any query contact us via email at:-<br />
+          Email:- tejveersingh250@gmail.com
+        </p>
       </div>
     </>
   )

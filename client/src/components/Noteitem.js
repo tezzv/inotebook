@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import noteContext from '../context/notes/noteContext';
+import ReactLinkify from 'react-linkify';
+
 
 const Noteitem = (props) => {
     const context = useContext(noteContext);
@@ -17,6 +19,7 @@ const Noteitem = (props) => {
     const utcDate = new Date(note.date);
     const options = { timeZone: 'Asia/Kolkata' };
     const istDate = utcDate.toLocaleString('en-IN', options);
+
     return (
         <>
             <div className='col-md-3'>
@@ -29,7 +32,9 @@ const Noteitem = (props) => {
                                 <i className="fa-sharp fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }} alt="edit" />
                             </div>
                         </div>
-                        <p className="card-text">{note.description}</p>
+                        <ReactLinkify>
+                            <p className="card-text" style={{ whiteSpace: 'pre-wrap' }}>{note.description}</p>
+                        </ReactLinkify>
                     </div>
                     <div className="card-footer">
                         <div className='row'>
