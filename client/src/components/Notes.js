@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
+import classes from './login.module.css';
 
 const Notes = () => {
     const context = useContext(noteContext);
@@ -40,7 +41,9 @@ const Notes = () => {
 
     return (
         <>
+            <div className={classes.anim1}>
             <AddNote />
+            </div>
             <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
