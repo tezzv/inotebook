@@ -44,10 +44,10 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className='d-flex'>
-                            {!localStorage.getItem('token') && <Link className="btn btn-primary mx-1" to="/login" >Login</Link>}
-                            {!localStorage.getItem('token') && <Link className="btn btn-primary mx-1" to="/signup" >Signup</Link>}
+                            {!localStorage.getItem('token') && <Link className="btn btn-outline-primary  mx-1" to="/login" >Login</Link>}
+                            {!localStorage.getItem('token') && <Link className="btn btn-outline-primary mx-1" to="/signup" >Signup</Link>}
 
-                            {localStorage.getItem('token') && <button className="btn btn-primary mx-1" onClick={logouthandler} >Logout</button>}
+                            {localStorage.getItem('token') && <button className="btn btn-outline-danger mx-1" onClick={logouthandler} >Logout</button>}
                         </div>
                     </div>
                 </div>
