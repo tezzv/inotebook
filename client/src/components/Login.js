@@ -47,7 +47,9 @@ const Login = () => {
     return (
         <>
             <div className={classes.anim1}>
-                {!localStorage.getItem('token') && <h2 style={{ color: "#2F1C6A" }} className='my-3'>Please Login to Continue</h2>}
+                <div>
+                    {!localStorage.getItem('token') && <h2 style={{ color: "#2F1C6A" }} className='my-3'>Please Login to Continue</h2>}
+                </div>
                 <form onSubmit={submitHandler}>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
