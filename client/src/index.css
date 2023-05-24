@@ -20,6 +20,24 @@ i {
   box-shadow: none;
 }
 
+.form-control {
+  border-radius: 0;
+}
+
+.authContainer{
+  display: flex;
+  justify-content: center;
+}
+.authContainer1{
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
 @media only screen and (max-width: 990px) {
   .offcanvas {
     background: #076585;
@@ -30,24 +48,30 @@ i {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
-  .auth-btns{
+  .auth-btns {
     margin-top: 2rem;
     justify-content: center;
   }
 
-  .nav-list1{
+  .nav-list1 {
     align-items: center;
   }
 
-  .offcanvas-body1 .navbar-nav .nav-link.active{
+  .offcanvas-body1 .navbar-nav .nav-link.active {
     color: #0657d2;
+  }
+
+  .authContainer1{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
-@media only screen and (max-width: 260px){
-  .auth-btns{
+@media only screen and (max-width: 260px) {
+  .auth-btns {
     margin-top: .5rem;
     flex-direction: column;
     gap: .5rem;
   }
+
 }
