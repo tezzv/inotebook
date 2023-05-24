@@ -17,5 +17,37 @@ i {
 }
 
 .navbar-toggler:focus {
-  box-shadow:none;
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 990px) {
+  .offcanvas {
+    background: #076585;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #fff, #076585);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #fff, #076585);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .auth-btns{
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .nav-list1{
+    align-items: center;
+  }
+
+  .offcanvas-body1 .navbar-nav .nav-link.active{
+    color: #0657d2;
+  }
+}
+
+@media only screen and (max-width: 260px){
+  .auth-btns{
+    margin-top: .5rem;
+    flex-direction: column;
+    gap: .5rem;
+  }
 }

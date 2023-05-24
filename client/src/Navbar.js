@@ -38,13 +38,13 @@ const Navbar = () => {
                     <button class="navbar-toggler  border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div style={{width: '60vw', backgroundColor: '#e3f2fd'}} class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div style={{ width: '60vw' }} class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NOTEDiN</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <div class="offcanvas-body offcanvas-body1">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 nav-list1">
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/">Home</Link>
                                 </li>
@@ -52,7 +52,7 @@ const Navbar = () => {
                                     <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
                                 </li>
                             </ul>
-                            <div className='d-flex'>
+                            <div className='d-flex auth-btns'>
                                 {!localStorage.getItem('token') && <Link className="btn btn-outline-primary rounded-pill  mx-1" to="/login" >Login</Link>}
                                 {!localStorage.getItem('token') && <Link className="btn btn-outline-primary rounded-pill mx-1" to="/signup" >Signup</Link>}
 
