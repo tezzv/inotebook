@@ -35,16 +35,16 @@ const Navbar = () => {
                     <Link className="navbar-brand" to="/"><img style={{ height: "40px", width: "71px" }} src={notedInLogo} /></Link>
 
 
-                    <button class="navbar-toggler  border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler  border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div style={{ width: '60vw' }} class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NOTEDiN</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div style={{ width: '60vw' }} className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div className="offcanvas-header">
+                            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">NOTEDiN</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body offcanvas-body1">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 nav-list1">
+                        <div className="offcanvas-body offcanvas-body1">
+                            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 nav-list1">
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/">Home</Link>
                                 </li>

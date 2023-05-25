@@ -51,9 +51,9 @@ const Signup = () => {
   return (
     <>
       <div className={classes.anim1 + ' authContainer'}>
-        <div style={{marginTop: '3rem'}} className='authContainer1'>
+        <div className='authContainer1'>
           <div className='authHeading1'>
-            {!localStorage.getItem('token') && <h4 style={{ color: "#fff" }} className='my-3'>Please create an Account </h4>}
+            {!localStorage.getItem('token') && <h4 style={{ color: "#fff", textAlign: 'center' }} className='my-3'>Please create an Account </h4>}
           </div>
           <form onSubmit={submitHandler}>
             <div className="mb-3">
