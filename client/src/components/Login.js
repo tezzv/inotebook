@@ -47,9 +47,9 @@ const Login = () => {
     return (
         <>
             <div className={classes.anim1 + ' authContainer'}>
-                <div className='authContainer1'>
-                    <div>
-                        {!localStorage.getItem('token') && <h4 style={{ color: "#2F1C6A" }} className='my-3'>Please Login to Continue</h4>}
+                <div style={{marginTop: '6rem'}} className='authContainer1'>
+                    <div className='authHeading1'>
+                        {!localStorage.getItem('token') && <h4 style={{ color: "#fff" }} className='my-2'>Please Login to Continue</h4>}
                     </div>
                     <form onSubmit={submitHandler}>
                         <div className="mb-3">

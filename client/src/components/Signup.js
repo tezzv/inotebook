@@ -51,8 +51,10 @@ const Signup = () => {
   return (
     <>
       <div className={classes.anim1 + ' authContainer'}>
-        <div className='authContainer1'>
-          {!localStorage.getItem('token') && <h4 style={{ color: "#2F1C6A" }} className='my-3'>Please create an Account </h4>}
+        <div style={{marginTop: '3rem'}} className='authContainer1'>
+          <div className='authHeading1'>
+            {!localStorage.getItem('token') && <h4 style={{ color: "#fff" }} className='my-3'>Please create an Account </h4>}
+          </div>
           <form onSubmit={submitHandler}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">Name</label>
