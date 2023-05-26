@@ -6,7 +6,7 @@ import classes from './login.module.css';
 
 const Signup = () => {
   const context = useContext(noteContext);
-  const { showAlert, host } = context;
+  const { showAlert, host, back } = context;
 
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ name: "", email: "", cpassword: "", password: "" })
@@ -50,6 +50,12 @@ const Signup = () => {
 
   return (
     <>
+      <div
+        style={{
+          backgroundImage: `url(${back})`
+        }}
+        className="bg1"
+      />
       <div className={classes.anim1 + ' authContainer'}>
         <div className='authContainer1'>
           <div className='authHeading1'>

@@ -63,6 +63,21 @@ i {
 
 }
 
+.bg1 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  position: fixed;
+  rotate: 180deg;
+  width: 100vw;
+  z-index: -1;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
 
 @media only screen and (max-width: 990px) {
   .offcanvas {
@@ -76,15 +91,19 @@ i {
 
   .auth-btns {
     margin-top: 2rem;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .nav-list1 {
-    align-items: center;
+    /* align-items: center; */
   }
 
   .offcanvas-body1 .navbar-nav .nav-link.active {
     color: #0657d2;
+  }
+
+  .offcanvas-body1 .navbar-nav .nav-link {
+    margin-left: .8rem;
   }
 
   .authContainer1 {

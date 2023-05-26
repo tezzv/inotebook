@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NoteContext from "./noteContext";
+import futuristicImg from './bakgrounds/futuristic3.jpg';
+import classicImg from './bakgrounds/classic3.jpg';
+import coolImg from './bakgrounds/cool.jpg';
 
 const NoteState = (props) => {
     const authToken = localStorage.getItem('token');
@@ -166,9 +169,50 @@ const NoteState = (props) => {
         }
     }
 
+    // let back = futuristicImg;
+    const [back, setBack] = useState(classicImg)
+
+    useEffect(() => {
+        if (localStorage.getItem('theme') === 'futuristic') {
+            setBack(futuristicImg)
+        }
+
+        if (localStorage.getItem('theme') === 'cool') {
+            setBack(coolImg)
+        }
+        if (localStorage.getItem('theme') === 'classic') {
+            setBack(classicImg)
+        }
+        if (localStorage.getItem('theme') === 'none') {
+            setBack('')
+        }
+    }, [back, setBack])
+
+
+
+    const futuristic = () => {
+        setBack(futuristicImg)
+        localStorage.setItem('theme', 'futuristic');
+    }
+    const cool = () => {
+        setBack(coolImg)
+        localStorage.setItem('theme', 'cool');
+    }
+    const classic = () => {
+        setBack(classicImg)
+        localStorage.setItem('theme', 'classic');
+    }
+    const None = () => {
+        setBack('')
+        localStorage.setItem('theme', 'none');
+    }
+
 
     return (
-        <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote, editNote, getNotes, alert, showAlert, getUser, host }}>
+        <NoteContext.Provider value={{
+            notes, setNotes, addNote, deleteNote, editNote, getNotes, alert, showAlert,
+            getUser, host, back, classic, futuristic, cool, None
+        }}>
             {props.children}
         </NoteContext.Provider>
     )

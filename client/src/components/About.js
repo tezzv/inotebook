@@ -1,10 +1,20 @@
 import React from 'react';
 import classes from './login.module.css';
+import { useContext } from 'react';
+import noteContext from '../context/notes/noteContext';
 
 const About = () => {
-
+  const context = useContext(noteContext);
+  const { back } = context;
   return (
     <>
+      <div
+        style={{
+          backgroundImage: `url(${back})`,
+          opacity: '.5'
+        }}
+        className="bg1"
+      />
       <div className={classes.anim1} >
 
         <div style={{

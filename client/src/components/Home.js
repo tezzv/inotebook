@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const context = useContext(noteContext);
-  const { getUser } = context;
+  const { getUser, back } = context;
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -25,6 +25,13 @@ const Home = () => {
 
 
     <>
+      <div
+        style={{
+          backgroundImage: `url(${back})`,
+        }}
+        className="bg1"
+      />
+
       {localStorage.getItem('name') && <h5 style={{ marginTop: "30px" }}>Hi! {localStorage.getItem('name')}</h5>}
       {!localStorage.getItem('token') && <h2 style={{ color: "#ff5200" }} className='my-3'>Please <Link to='/login'>Login</Link> to Continue</h2>}
       <Notes />

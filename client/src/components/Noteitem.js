@@ -23,7 +23,7 @@ const Noteitem = (props) => {
     return (
         <>
             <div className='col-md-3'>
-                <div className="card my-3" >
+                <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }} className="card my-3" >
                     <div className="card-body">
                         <div className='d-flex align-items-center justify-content-between'>
                             <h5 className="card-title">{note.title}</h5>

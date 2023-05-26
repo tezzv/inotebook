@@ -12,7 +12,7 @@ import notedInLogo from './components/images/notedin logo.svg'
 const Navbar = () => {
     const navigate = useNavigate();
     const context = useContext(noteContext);
-    const { setNotes, showAlert } = context;
+    const { setNotes, showAlert, classic, futuristic, cool, None } = context;
 
     const logouthandler = () => {
         localStorage.removeItem('token');
@@ -27,7 +27,7 @@ const Navbar = () => {
     return (
         <>
             <nav
-                style={{ backgroundColor: '#e3f2fd' }}
+                // style={{ backgroundColor: '#e3f2fd' }}
                 className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     {/* <Link className="navbar-brand" to="/">Navbar</Link> */}
@@ -50,6 +50,19 @@ const Navbar = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
+                                </li>
+                                <li>
+                                    <div className="dropdown">
+                                        <button style={{ color: '#000', border: 'none' }} className="btn btn-secondary dropdown-toggle bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Theme
+                                        </button>
+                                        <ul style={{ textAlign: 'center' }} className="dropdown-menu bg-transparent">
+                                            <li style={{ cursor: 'pointer' }} onClick={futuristic}>Futuristic</li>
+                                            <li style={{ cursor: 'pointer' }} onClick={classic}>Classsic</li>
+                                            <li style={{ cursor: 'pointer' }} onClick={cool}>Cool</li>
+                                            <li style={{ cursor: 'pointer' }} onClick={None}>None</li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                             <div className='d-flex auth-btns'>
