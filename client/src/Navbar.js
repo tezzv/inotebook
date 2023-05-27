@@ -15,11 +15,16 @@ const Navbar = () => {
     const { setNotes, showAlert, classic, futuristic, cool, None } = context;
 
     const logouthandler = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('name');
-        setNotes([]);
-        showAlert("Logout succesfully", "success")
-        navigate("/login");
+        const confirmed = window.confirm('Are you sure you want to Logout?');
+        if (confirmed) {
+            // Perform logout logic here
+
+            localStorage.removeItem('token');
+            localStorage.removeItem('name');
+            setNotes([]);
+            showAlert("Logout succesfully", "success")
+            navigate("/login");
+        }
     }
 
     const location = useLocation();
