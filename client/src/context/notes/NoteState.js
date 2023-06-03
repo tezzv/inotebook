@@ -5,7 +5,9 @@ import classicImg from './bakgrounds/classic3.jpg';
 import coolImg from './bakgrounds/cool.jpg';
 
 const NoteState = (props) => {
+
     const authToken = localStorage.getItem('token');
+
 
     let host = "http://localhost:5000"; // Default host for development
 
@@ -35,8 +37,15 @@ const NoteState = (props) => {
             });
 
             const json = await response.json()
-            // console.log("Success:", json);
-            setNotes(json.reverse())
+            // console.log(json)
+            if (json.error === "Please authenticate using a valid token") {
+                localStorage.removeItem('token');
+                localStorage.removeItem('name');
+                setNotes([]);
+                return
+            } else {
+                setNotes(json.reverse())
+            }
         } catch (error) {
             // console.error("Error:", error);
             showAlert(error, "danger")
@@ -160,6 +169,12 @@ const NoteState = (props) => {
             });
 
             const result = await response.json()
+            // console.log(result)
+            if (result.error === "Please authenticate using a valid token") {
+                localStorage.removeItem('token');
+                localStorage.removeItem('name');
+                setNotes([]);
+            }
             if (result.name) {
                 localStorage.setItem('name', result.name)
             }

@@ -85,7 +85,7 @@ const Notes = () => {
             <h2>Your Notes</h2>
             {notes.length === 0 && <p>No note to display 😞. Please add some notes.</p>}
             <div className='row my-3'>
-                {notes.length > 0 && notes.map((note) => (
+                {notes.length > 0 && localStorage.getItem('token') && notes.map((note) => (
                     <Noteitem key={note._id} updateNote={updateNote} note={note} />
                 ))}
             </div>

@@ -41,6 +41,7 @@ router.post('/createuser', [
         }
 
         // generate JWT Token
+        // const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "30d" });
         const authtoken = jwt.sign(data, JWT_SECRET);
         // console.log(authtoken);
 
@@ -85,6 +86,7 @@ router.post('/login', [
         }
 
         // generate JWT Token
+        // const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "30d" });
         const authtoken = jwt.sign(data, JWT_SECRET);
         // console.log(authtoken);
 
