@@ -26,10 +26,10 @@ const Noteitem = (props) => {
                 <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }} className="card my-3" >
                     <div className="card-body">
                         <div className='d-flex align-items-center justify-content-between'>
-                            <h5 className="card-title">{note.title}</h5>
+                            <h5 className="card-title" title={note.title}>{note.title}</h5>
                             <div>
-                                <i className="fa-solid fa-trash-can mx-2" onClick={deleteNote1} />
-                                <i className="fa-sharp fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }} alt="edit" />
+                                <i className="fa-solid fa-trash-can mx-2" title='Delete note' onClick={deleteNote1} />
+                                <i className="fa-sharp fa-solid fa-pen-to-square mx-2" title='Update note' onClick={() => { updateNote(note) }} alt="edit" />
                             </div>
                         </div>
                         <ReactLinkify>
@@ -38,8 +38,8 @@ const Noteitem = (props) => {
                     </div>
                     <div className="card-footer">
                         <div className='row'>
-                            <small style={{ fontSize: "10px" }} className="text-body-secondary"><strong>Tag:</strong> {note.tag}</small>
-                            <small style={{ fontSize: "10px" }} className="text-body-secondary"><strong>Created on:</strong> {istDate}</small>
+                            <small style={{ fontSize: "10px" }} className="text-body-secondary" title={`Tag: ${note.tag}`}><strong>Tag:</strong> {note.tag}</small>
+                            <small style={{ fontSize: "10px" }} className="text-body-secondary" title={`Created on: ${istDate}`}><strong>Created on:</strong> {istDate}</small>
                         </div>
 
                     </div>
