@@ -6,11 +6,11 @@ const NotFound = () => {
 
   return (
     <>
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '5vh'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '5vmin' }}>
         <h1>404: Not Found</h1>
         <p>Go to:- <Link to="/">Home</Link></p>
-        <img style={{width: "60vw", height: "60vh"}} src={notFoundImg} alt='404 NOT FOUND' />
-    </div>
+        <img style={{ width: '68vmin', aspectRatio: '1 / 1' }} src={notFoundImg} alt='404 NOT FOUND' />
+      </div>
     </>
   )
 }
