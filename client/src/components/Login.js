@@ -15,7 +15,10 @@ const Login = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
+    const [loading, setLoading] = useState(false);
+
     const submitHandler = async (e) => {
+        setLoading(true);
         e.preventDefault()
 
         try {
@@ -31,9 +34,12 @@ const Login = () => {
             // console.log("Success:", result);
             if (result.authtoken) {
                 localStorage.setItem('token', result.authtoken)
-                setCredentials({ email: "", password: "" })
-                showAlert("Login succesfully", "success")
-                navigate('/')
+                setTimeout(() => {
+                    setCredentials({ email: "", password: "" })
+                    setLoading(false);
+                    showAlert("Login succesfully", "success")
+                    navigate('/')
+                }, 2000);
             } else {
                 showAlert(result.error, "danger")
             }
@@ -68,10 +74,17 @@ const Login = () => {
                             <input type="password" className="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" value={credentials.password} name='password' onChange={onChange} autoComplete='' required />
                             <div id="passwordHelp" className="form-text">Do not have an account create <Link to='/signup'>here</Link></div>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary">
+                            {loading &&
+                                <div style={{ width: '24px', height: '24px', margin: '0 11px 0 11px' }} className="spinner-border text-light" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                            }
+                            {!loading && 'Submit'}
+                        </button>
                     </form>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

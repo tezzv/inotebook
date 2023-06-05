@@ -15,7 +15,10 @@ const Signup = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
 
+  const [loading, setLoading] = useState(false);
+
   const submitHandler = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     try {
@@ -35,9 +38,14 @@ const Signup = () => {
 
       if (result.authtoken) {
         localStorage.setItem('token', result.authtoken)
-        setCredentials({ email: "", password: "" })
-        showAlert("Signup succesfully", "success")
-        navigate('/')
+
+        setTimeout(() => {
+          setCredentials({ email: "", password: "" })
+          setLoading(false);
+          showAlert("Signup succesfully", "success")
+          navigate('/')
+        }, 2000);
+
       } else {
         showAlert(result.error, "danger")
       }
@@ -81,7 +89,14 @@ const Signup = () => {
               <div id="passwordHelp" className="form-text"><strong>Please save your password carefully.</strong></div>
               <div id="passwordHelp" className="form-text">Already have an account login <Link to='/login'>here</Link></div>
             </div>
-            <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Submit</button>
+            <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">
+              {loading &&
+                <div style={{ width: '24px', height: '24px', margin: '0 11px 0 11px' }} className="spinner-border text-light" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              }
+              {!loading && 'Submit'}
+            </button>
           </form>
         </div>
       </div>

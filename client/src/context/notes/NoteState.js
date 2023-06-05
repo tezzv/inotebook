@@ -185,7 +185,7 @@ const NoteState = (props) => {
     }
 
     // let back = futuristicImg;
-    const [back, setBack] = useState(classicImg)
+    const [back, setBack] = useState(futuristicImg)
 
     useEffect(() => {
         if (localStorage.getItem('theme') === 'futuristic') {

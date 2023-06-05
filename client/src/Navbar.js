@@ -61,11 +61,11 @@ const Navbar = () => {
                                         <button style={{ color: '#000', border: 'none' }} className="btn btn-secondary dropdown-toggle bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Theme
                                         </button>
-                                        <ul style={{ textAlign: 'center' }} className="dropdown-menu bg-transparent">
-                                            <li style={{ cursor: 'pointer' }} onClick={futuristic}>Futuristic</li>
-                                            <li style={{ cursor: 'pointer' }} onClick={classic}>Classsic</li>
-                                            <li style={{ cursor: 'pointer' }} onClick={cool}>Cool</li>
-                                            <li style={{ cursor: 'pointer' }} onClick={None}>None</li>
+                                        <ul className="dropdown-menu bg-transparent">
+                                            <li style={{ cursor: 'pointer', padding: '0 0 0 1rem' }} onClick={futuristic}>Futuristic</li>
+                                            <li style={{ cursor: 'pointer', padding: '0 0 0 1rem' }} onClick={classic}>Classsic</li>
+                                            <li style={{ cursor: 'pointer', padding: '0 0 0 1rem' }} onClick={cool}>Cool</li>
+                                            <li style={{ cursor: 'pointer', padding: '0 0 0 1rem' }} onClick={None}>None</li>
                                         </ul>
                                     </div>
                                 </li>
