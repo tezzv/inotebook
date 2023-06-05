@@ -39,14 +39,20 @@ const Login = () => {
                     setLoading(false);
                     showAlert("Login succesfully", "success")
                     navigate('/')
-                }, 2000);
+                }, 1500);
             } else {
-                showAlert(result.error, "danger")
+                setTimeout(() => {
+                    setLoading(false);
+                    showAlert(result.error, "danger")
+                }, 1000);
             }
 
         } catch (error) {
             // console.error("Error:", error);
-            showAlert(error, "danger")
+            setTimeout(() => {
+                setLoading(false);
+                showAlert(error, "danger")
+            }, 1000);
         }
     }
 
