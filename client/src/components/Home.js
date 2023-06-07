@@ -6,6 +6,7 @@ import noteContext from '../context/notes/noteContext';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  document.title = 'NOTEDiN- Home';
   const context = useContext(noteContext);
   const { getUser, back } = context;
 

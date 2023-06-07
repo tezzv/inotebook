@@ -5,6 +5,7 @@ import noteContext from '../context/notes/noteContext';
 import classes from './login.module.css';
 
 const Login = () => {
+    document.title = 'NOTEDiN- Login';
     const context = useContext(noteContext);
     const { showAlert, host, back } = context;
 

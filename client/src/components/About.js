@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import noteContext from '../context/notes/noteContext';
 
 const About = () => {
+  document.title = 'NOTEDiN- About';
   const context = useContext(noteContext);
   const { back } = context;
   return (
