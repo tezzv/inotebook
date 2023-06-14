@@ -12,7 +12,7 @@ const NoteState = (props) => {
     let host = "http://localhost:5000"; // Default host for development
 
     if (process.env.NODE_ENV === 'production') {
-        host = "https://notedin-api-git-master-tezzv.vercel.app"; // API host for production
+        host = "https://notedin-api.vercel.app"; // API host for production
     }
 
 

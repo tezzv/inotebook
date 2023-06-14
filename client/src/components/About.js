@@ -40,7 +40,10 @@ const About = () => {
           <h6>:- Delete note using <i className="fa-solid fa-trash-can mx-2" /> button</h6>
           <p>
             For any query contact us via email at:-<br />
-            Email:- tejveersingh250@gmail.com
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '.5rem' }}>
+              <i className="fa-regular fa-envelope"></i>
+              <a style={{textDecoration: 'none', color: 'black'}} href="mailto:tejveersingh250@gmail.com" >tejveersingh250@gmail.com</a>
+            </div>
           </p>
         </div>
       </div>
