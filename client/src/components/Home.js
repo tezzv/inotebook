@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   document.title = 'NOTEDiN- Home';
   const context = useContext(noteContext);
-  const { getUser, back } = context;
+  const { getUser } = context;
 
   const [loading, setLoading] = useState(false);
 
@@ -53,12 +53,12 @@ const Home = () => {
 
   return (
     <>
-      <div
+      {/* <div
         style={{
           backgroundImage: `url(${back})`,
         }}
         className="bg1"
-      />
+      /> */}
 
       {loading &&
         <div style={{ height: '60vh' }} className='d-flex justify-content-center align-items-center'>

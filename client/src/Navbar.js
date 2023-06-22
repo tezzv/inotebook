@@ -12,7 +12,7 @@ import notedInLogo from './components/images/notedin logo.svg'
 const Navbar = () => {
     const navigate = useNavigate();
     const context = useContext(noteContext);
-    const { setNotes, showAlert, classic, futuristic, cool, None } = context;
+    const { setNotes, showAlert, classic, futuristic, cool, None, back } = context;
 
     const logouthandler = () => {
         const confirmed = window.confirm('Are you sure you want to Logout?');
@@ -40,6 +40,14 @@ const Navbar = () => {
             <nav
                 // style={{ backgroundColor: '#e3f2fd' }}
                 className="navbar navbar-expand-lg">
+
+                <div
+                    style={{
+                        backgroundImage: `url(${back})`,
+                    }}
+                    className="bg1"
+                />
+
                 <div className="container-fluid">
                     {/* <Link className="navbar-brand" to="/">Navbar</Link> */}
                     {/* <Link className="navbar-brand" to="/"><img style={{ height: "40px", width: "60px" }} src={iNotebookLogo} /></Link> */}
@@ -64,10 +72,10 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <div className="dropdown"
-                                        // onMouseEnter={themehandler}
-                                        // onMouseLeave={themehandler}
+                                    // onMouseEnter={themehandler}
+                                    // onMouseLeave={themehandler}
                                     >
-                                        <button style={{ color: '#000', border: 'none' }} className="btn btn-secondary dropdown-toggle bg-transparent" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button style={{ color: '#000', border: 'none' }} className="btn btn-secondary dropdown-toggle bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Theme
                                         </button>
                                         <ul className="dropdown-menu bg-transparent theme-menu" >

@@ -7,7 +7,7 @@ import classes from './login.module.css';
 const Signup = () => {
   document.title = 'NOTEDiN- Signup';
   const context = useContext(noteContext);
-  const { showAlert, host, back } = context;
+  const { showAlert, host } = context;
 
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ name: "", email: "", cpassword: "", password: "" })
@@ -63,14 +63,21 @@ const Signup = () => {
     }
   }
 
+  const [showpwd, setShowpwd] = useState(false);
+
+  const pwdHandler = () => {
+    setShowpwd(!showpwd);
+  }
+
+
   return (
     <>
-      <div
+      {/* <div
         style={{
           backgroundImage: `url(${back})`
         }}
         className="bg1"
-      />
+      /> */}
       <div className={classes.anim1 + ' authContainer'}>
         <div className='authContainer1'>
           <div className='authHeading1'>
@@ -87,12 +94,45 @@ const Signup = () => {
               <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" className="form-control" id="password" value={credentials.password} name='password' onChange={onChange} minLength={5} placeholder='Password must be atleast 5 characters' autoComplete='' required />
+              <div className='d-flex gap-2'>
+                <label htmlFor="password" className="form-label">Password</label>
+
+
+                <div class="hover-text">
+                  <label className='mt-1  d-flex justify-content-center align-items-center rounded-circle' style={{ width: "1rem", height: "1rem", backgroundColor: "#fff", }}>
+                    <i class="fa-solid fa-info fa-xs"></i>
+                  </label>
+                  <span class="tooltip-text top">
+                    Must contain at least one  number
+                    and one uppercase and lowercase letter,
+                    and at least 8 or more characters
+                  </span>
+                </div>
+              </div>
+              <div className='d-flex'>
+                <input
+                  type={!showpwd ? "password" : "text"}
+                  className="form-control"
+                  id="password"
+                  value={credentials.password}
+                  name='password'
+                  onChange={onChange}
+                  minLength={8}
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  // placeholder='Abc@123pq'
+                  autoComplete=''
+                  required />
+
+                <label className='d-flex justify-content-center align-items-center' onClick={pwdHandler} style={{ width: '24px', marginLeft: '.5rem' }}>
+                  {!showpwd && <i className="fa-sharp fa-solid fa-eye" title='show password'></i>}
+                  {showpwd && <i className="fa-sharp fa-solid fa-eye-slash" title='hide password'></i>}
+                </label>
+              </div>
+
             </div>
             <div className="mb-3">
               <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-              <input type="password" className="form-control" id="cpassword" aria-describedby="passwordHelp" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => { e.preventDefault() }} />
+              <input type={!showpwd ? "password" : "text"} className="form-control" id="cpassword" aria-describedby="passwordHelp" value={credentials.cpassword} name='cpassword' onChange={onChange} autoComplete='' required onPaste={(e) => { e.preventDefault() }} />
               <div id="passwordHelp" className="form-text"><strong>Please save your password carefully.</strong></div>
               <div id="passwordHelp" className="form-text">Already have an account login <Link to='/login'>here</Link></div>
             </div>

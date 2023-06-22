@@ -7,7 +7,7 @@ import classes from './login.module.css';
 const Login = () => {
     document.title = 'NOTEDiN- Login';
     const context = useContext(noteContext);
-    const { showAlert, host, back } = context;
+    const { showAlert, host } = context;
 
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ email: "", password: "" })
@@ -57,14 +57,21 @@ const Login = () => {
         }
     }
 
+    const [showpwd, setShowpwd] = useState(false);
+
+    const pwdHandler = () => {
+        setShowpwd(!showpwd);
+    }
+
+
     return (
         <>
-            <div
+            {/* <div
                 style={{
                     backgroundImage: `url(${back})`
                 }}
                 className="bg1"
-            />
+            /> */}
             <div className={classes.anim1 + ' authContainer'}>
                 <div className='authContainer1 authContainer1Login'>
                     <div className='authHeading1'>
@@ -78,7 +85,23 @@ const Login = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" value={credentials.password} name='password' onChange={onChange} autoComplete='' required />
+                            <div className='d-flex'>
+                                <input
+                                    type={!showpwd ? "password" : "text"}
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    aria-describedby="passwordHelp"
+                                    value={credentials.password}
+                                    name='password'
+                                    onChange={onChange}
+                                    autoComplete=''
+                                    required />
+
+                                <label className='d-flex justify-content-center align-items-center' onClick={pwdHandler} style={{ width: '24px', marginLeft: '.5rem' }}>
+                                    {!showpwd && <i className="fa-sharp fa-solid fa-eye" title='show password'></i>}
+                                    {showpwd && <i className="fa-sharp fa-solid fa-eye-slash" title='hide password'></i>}
+                                </label>
+                            </div>
                             <div id="passwordHelp" className="form-text">Do not have an account create <Link to='/signup'>here</Link></div>
                         </div>
                         <button type="submit" className="btn btn-primary">
