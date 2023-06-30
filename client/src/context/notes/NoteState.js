@@ -9,7 +9,7 @@ const NoteState = (props) => {
     const authToken = localStorage.getItem('token');
 
 
-    let host = "http://localhost:5000"; // Default host for development
+    let host = "https://notedin-api.vercel.app" // Default host for development
 
     if (process.env.NODE_ENV === 'production') {
         host = "https://notedin-api.vercel.app"; // API host for production

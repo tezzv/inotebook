@@ -98,11 +98,11 @@ const Signup = () => {
                 <label htmlFor="password" className="form-label">Password</label>
 
 
-                <div class="hover-text">
+                <div className="hover-text">
                   <label className='mt-1  d-flex justify-content-center align-items-center rounded-circle' style={{ width: "1rem", height: "1rem", backgroundColor: "#fff", }}>
-                    <i class="fa-solid fa-info fa-xs"></i>
+                    <i className="fa-solid fa-info fa-xs"></i>
                   </label>
-                  <span class="tooltip-text top">
+                  <span className="tooltip-text top">
                     Must contain at least one  number
                     and one uppercase and lowercase letter,
                     and at least 8 or more characters

@@ -20,7 +20,7 @@ const AddNote = () => {
         <>
             <div className='container my-3'>
                 <h2>Add a Note</h2>
-                <form className='my-3'>
+                <form className='my-3 addNote'>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
                         <input type="text" className="form-control bg-transparent" id="title" name="title" onChange={onChange} value={note.title} minLength={3} placeholder='Enter Title (minimum 3 characters)' required />

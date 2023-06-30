@@ -7,7 +7,7 @@ import classes from './login.module.css';
 const Notes = () => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
-    
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getNotes(localStorage.getItem('token'));
@@ -21,11 +21,16 @@ const Notes = () => {
     const closeRef = useRef(null);
 
     const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+    const [rnote, setRnote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
 
     const updateNote = (currentNote) => {
         ref.current.click();
         setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag });
+        setRnote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag });
+    }
 
+    const resetHandler = () => {
+        setNote({ ...note, etitle: rnote.etitle, edescription: rnote.edescription, etag: rnote.etag });
     }
 
     const handleClick = (e) => {
@@ -42,7 +47,7 @@ const Notes = () => {
     return (
         <>
             <div className={classes.anim1}>
-            <AddNote />
+                <AddNote />
             </div>
             <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -60,17 +65,18 @@ const Notes = () => {
                             {/* UPDATE form */}
                             <form className='my-3'>
                                 <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">Title</label>
+                                    <label htmlFor="etitle" className="form-label">Title</label>
                                     <input type="text" className="form-control" id="etitle" name="etitle" onChange={onChange} value={note.etitle} placeholder='Enter Title (minimum 3 characters)' required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description</label>
+                                    <label htmlFor="edescription" className="form-label">Description</label>
                                     <textarea type="text" className="form-control" id="edescription" name="edescription" onChange={onChange} value={note.edescription} placeholder='Enter Description (minimum 5 characters)' required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="tag" className="form-label">Tag</label>
+                                    <label htmlFor="etag" className="form-label">Tag</label>
                                     <input type="text" className="form-control" id="etag" name="etag" onChange={onChange} value={note.etag} placeholder='Enter Tag (minimum 2 characters)' />
                                 </div>
+                                <input type='reset' onClick={resetHandler} />
                             </form>
 
 
@@ -79,6 +85,7 @@ const Notes = () => {
                             <button type="button" className="btn btn-secondary" ref={closeRef} data-bs-dismiss="modal">Close</button>
                             <button type="button" disabled={note.etitle.length < 3 || note.edescription.length < 5 || note.etag.length < 2} className="btn btn-primary" onClick={handleClick} >Update Note</button>
                         </div>
+
                     </div>
                 </div>
             </div>

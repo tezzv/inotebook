@@ -44,7 +44,7 @@ const Home = () => {
 
   const handleScroll = () => {
     // Check if the user has scrolled more than 100vh
-    if (window.pageYOffset > .01 * window.innerHeight) {
+    if (window.scrollY > .1 * window.innerHeight) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -65,9 +65,9 @@ const Home = () => {
           {/* <div style={{ width: '20vmin', height: '20vmin' }} className="spinner-border text-light" role="status">
             <span className="visually-hidden">Loading...</span>
           </div> */}
-          <div 
-          style={{ width: '20vmin', height: '20vmin' }} 
-          className="custom-loader"></div>
+          <div
+            style={{ width: '20vmin', height: '20vmin' }}
+            className="custom-loader"></div>
         </div>
       }
 
